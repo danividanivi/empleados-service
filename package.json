@@ -1,0 +1,12 @@
+{
+  "name": "listaempleados-service",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-material": "^1.1.0-rc4-master-06e7e99",
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "mongodb": "^2.1.19",
+    "mongojs": "^2.4.0"
+  }
+}

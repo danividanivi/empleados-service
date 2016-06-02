@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html ng-app="myApp" ng-cloak>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+          integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet"
+          href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+
+</head>
+
+<title>Aplicación Recursos Humanos Xexiadores Airlines</title>
+</head>
+<body>
+
+<div class="container" ng-controller="AppCtrl">
+    <h1>Lista de Empleados Xexiadores Airlines</h1>
+    <md-button class="md-raised md-primary md-button md-ink-ripple"
+               type="button"
+               ng-transclude
+               aria-label="Primary"
+               ng-click="switchPanel('employers')">
+        <span class="ng-scope">Trabajadores</span>
+    </md-button>
+    <md-button class="md-raised md-primary md-button md-ink-ripple"
+               type="button"
+               ng-transclude
+               aria-label="Primary"
+               ng-click="switchPanel('boss')">
+        <span class="ng-scope">Jefe</span>
+    </md-button>
+
+    <div ng-switch on="panel">
+        <div ng-switch-when="employers">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Oficina</th>
+                    <th>Sueldo</th>
+                    <th>Acciones</th>
+                    <th>&nbsp;</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <md-input-container><label>nombre</label><input ng-model="contact.name"></md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container><label>email</label><input ng-model="contact.email"></md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container><label>telefono</label><input ng-model="contact.number"></md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container><label>oficina</label><input ng-model="contact.oficina"></md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container><label>sueldo</label><input ng-model="contact.sueldo"></md-input-container>
+                    </td>
+
+                    <td>
+                        <md-button class="md-raised md-primary" ng-click="addContact()">Contratar</md-button>
+                    </td>
+                    <td>
+                        <md-button class="md-raised" ng-click="update()">Actualizar</md-button>
+                        &nbsp;&nbsp;
+                        <md-button class="md-raised md-warn" ng-click="deselect()">Cancelar</md-button>
+                    </td>
+                </tr>
+                <tr ng-repeat="contact in contactlist">
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.number}}</td>
+                    <td>{{contact.oficina}}</td>
+                    <td>{{contact.sueldo}}</td>
+                    <td>
+                        <md-button class="md-raised md-primary" ng-click="remove(contact._id)">Despedir</md-button>
+                    </td>
+                    <td>
+                        <md-button class="md-raised " ng-click="edit(contact._id)">Editar</md-button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-switch-when="boss">
+            <h2>El todo poderoso jefe de la compañía</h2>
+            <img src="img/xexi.jpg">
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>-->
+
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+<script src="controllers/controller.js"></script>
+</body>
+</html>
