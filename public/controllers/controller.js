@@ -6,6 +6,7 @@ myApp.controller('AppCtrl', ['$scope','$http',
     function($scope, $http){
 
         $scope.panel = 'employers';
+        $scope.contact = {};
 
         $scope.switchPanel = function(panelName) {
             $scope.panel = panelName;
@@ -16,7 +17,7 @@ myApp.controller('AppCtrl', ['$scope','$http',
                 console.log("I got the data I requested");
                 console.log(response);
                 $scope.contactlist = response;
-                $scope.contact = "";
+                $scope.contact = {};
             });
         };
 
