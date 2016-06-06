@@ -69,7 +69,7 @@ app.put('/contactlist/:id', function (req, res) {
     console.log(req.body.name);
     db.contactlist.findAndModify({
             query: {_id: mongojs.ObjectId(id)},
-            update: {$set: {name: req.body.name, email: req.body.email, number: req.body.number}},
+            update: {$set: {name: req.body.name, email: req.body.email, number: req.body.number, oficina: req.body.oficina, number: req.body.sueldo}},
             new: true}, function (err, doc) {
             res.json(doc);
         }
@@ -78,4 +78,4 @@ app.put('/contactlist/:id', function (req, res) {
 
 // Start the server
 app.listen(port);
-console.log('Servidor iniciado en puerto ' +port);
+console.log('Servidor iniciado en puerto ' +port +' ya puedes empezar a contratar y despedir gente');

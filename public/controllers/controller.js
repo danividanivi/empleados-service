@@ -5,8 +5,8 @@ var myApp = angular.module('myApp', ['ngMaterial']);
 myApp.controller('AppCtrl', ['$scope','$http',
     function($scope, $http){
 
-        $scope.panel = 'employers';
-        $scope.contact = {};
+        $scope.panel = 'employers'; // Este es el panel de contratar y tal
+        $scope.contact = {}; //Aquí es donde se ve la foto de Xexi
 
         $scope.switchPanel = function(panelName) {
             $scope.panel = panelName;
@@ -14,7 +14,7 @@ myApp.controller('AppCtrl', ['$scope','$http',
 
         var refresh = function() {
             $http.get('/contactlist').success(function(response){
-                console.log("I got the data I requested");
+                console.log("Obtenidos los datos requeridos");
                 console.log(response);
                 $scope.contactlist = response;
                 $scope.contact = {};
@@ -55,5 +55,7 @@ myApp.controller('AppCtrl', ['$scope','$http',
         $scope.deselect = function() {
             $scope.contact = "";
         }
+
+    
 
     }]);

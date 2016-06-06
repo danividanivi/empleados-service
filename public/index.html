@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="myApp" ng-cloak>
+
+
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,13 +18,22 @@
     <link rel="stylesheet"
           href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
 
+
+
 </head>
+
+
+
+
 
 <title>Aplicación Recursos Humanos Xexiadores Airlines</title>
 </head>
 <body>
 
-<div class="container" ng-controller="AppCtrl">
+<div class="container" ng-controller="AppCtrl" >
+
+
+
     <h1>Lista de Empleados Xexiadores Airlines</h1>
     <md-button class="md-raised md-primary md-button md-ink-ripple"
                type="button"
@@ -37,9 +49,19 @@
                ng-click="switchPanel('boss')">
         <span class="ng-scope">Jefe</span>
     </md-button>
+    <md-button class="md-raised md-primary md-button md-ink-ripple"
+               type="button"
+               ng-transclude
+               aria-label="Primary"
+               ng-click="switchPanel('team')">
+        <span class="ng-scope">Equipo de desarrollo</span>
+    </md-button>
+
 
     <div ng-switch on="panel">
         <div ng-switch-when="employers">
+
+            <h1>Aplicación Recursos Humanos</h1>
             <table class="table">
                 <thead>
                 <tr>
@@ -95,9 +117,56 @@
                 </tbody>
             </table>
         </div>
-        <div ng-switch-when="boss">
-            <h2>El todo poderoso jefe de la compañía</h2>
+        <div ng-switch-when="boss" >
+
+            <h1>El todopoderoso jefe de la compañía</h1>
+            <p>
+
+
+            </p>
             <img src="img/xexi.jpg">
+            <body>
+            <p>Adoremos al líder</p>
+
+            <p>Viva SESAR y SWIM</p>
+            </body>
+        </div>
+
+        <div ng-switch-when="team">
+
+
+
+
+
+                    <header>
+                        <h1>Xexiadores Team</h1>
+                        <span class="avatar"><img src="images/avatar.jpg" alt="" /></span>
+                        <p>SESAR Team</p>
+                    </header>
+
+                    <footer>
+                        <ul class="icons">
+                            <li><a href="https://twitter.com/juankarms" class="fa-twitter">Twitter</a></li>
+                            <li><a href="http://www.pikore.com/watollop" class="fa-instagram">Instagram</a></li>
+                            <li><a href="https://www.facebook.com/djdanivi" class="fa-facebook">Facebook</a></li>
+                        </ul>
+                    </footer>
+                </section>
+
+                <!-- Footer -->
+                <footer id="footer">
+
+                    <ul class="copyright">
+                        <li>&copy; Xexiadores Team</li><li>SESAR y SWIM: <a href="http://eetacdsa4a.upc.es:5001/">Xexiadores Team web</a></li>
+                    </ul>
+                </footer>
+
+            </div>
+
+
+
+
+
         </div>
 
     </div>
@@ -116,5 +185,14 @@
 <!-- Angular Material Library -->
 <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
 <script src="controllers/controller.js"></script>
+
+<!-- Scripts -->
+<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+<script>
+    if ('addEventListener' in window) {
+        window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+        document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+    }
+</script>
 </body>
 </html>
